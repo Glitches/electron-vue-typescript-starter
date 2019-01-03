@@ -3,9 +3,7 @@
     <img id="logo" src="~@/assets/logo.png" alt="electron-vue">
     <main>
       <div class="left-side">
-        <span class="title">
-          Welcome to your new project!
-        </span>
+        <span class="title">Welcome to your new project!</span>
         <system-information></system-information>
       </div>
 
@@ -17,7 +15,11 @@
             internal configurations, using the project structure, building your application,
             and so much more.
           </p>
-          <button @click="open('https://simulatedgreg.gitbooks.io/electron-vue/content/')">Read the Docs</button><br><br>
+          <button
+            @click="open('https://simulatedgreg.gitbooks.io/electron-vue/content/')"
+          >Read the Docs</button>
+          <br>
+          <br>
         </div>
         <div class="doc">
           <div class="title alt">Other Documentation</div>
@@ -31,6 +33,7 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { shell } from "electron";
 import SystemInformation from "./LandingPage/SystemInformation.vue";
 
 export default Vue.extend({
@@ -38,7 +41,7 @@ export default Vue.extend({
   components: { SystemInformation },
   methods: {
     open(link: string) {
-      this.$electron.shell.openExternal(link);
+      shell.openExternal(link);
     }
   }
 });
